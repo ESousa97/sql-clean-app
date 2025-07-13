@@ -435,14 +435,30 @@ SQL limpo:`;
             // Criar um único INSERT com todos os VALUES
             finalParts.push(`INSERT INTO ${tableName} (${firstDataChunk.columns}) VALUES`);
             
-            // Adicionar todos os VALUES, separados por vírgula
+            // Processar e normalizar todos os VALUES
             const allValues = valueChunks
               .map(chunk => chunk.trim())
               .filter(chunk => chunk && !chunk.includes('INSERT INTO'))
-              .join(',\n');
+              .join('\n')
+              .split('\n')
+              .map(line => line.trim())
+              .filter(line => line && line !== '')
+              .map((line, index, array) => {
+                // Remover vírgula ou ponto-e-vírgula do final
+                const cleanLine = line.replace(/[,;]\s*$/, '');
+                
+                // Adicionar vírgula no final, exceto na última linha
+                if (index === array.length - 1) {
+                  return cleanLine + ';'; // Última linha termina com ;
+                } else {
+                  return cleanLine + ','; // Outras linhas terminam com ,
+                }
+              });
             
-            if (allValues) {
-              finalParts.push(allValues + ';');
+            if (allValues.length > 0) {
+              allValues.forEach(line => {
+                finalParts.push(line);
+              });
             }
           }
           finalParts.push('');
