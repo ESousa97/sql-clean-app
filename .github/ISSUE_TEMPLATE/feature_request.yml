@@ -1,0 +1,38 @@
+name: Feature request
+description: Propose an improvement for product or DX
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## ⚠️ Projeto arquivado
+
+        Este repositório está arquivado para estudo e não está mais ativo.
+        Não há garantia de resposta, revisão ou implementação.
+
+        ---
+
+  - type: input
+    id: problem
+    attributes:
+      label: Problem statement
+      description: What pain point does this feature solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Describe expected behavior and scope.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Optional alternatives already evaluated.
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: Who benefits and what risks/trade-offs exist?

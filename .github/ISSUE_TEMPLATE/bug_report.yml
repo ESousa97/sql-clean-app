@@ -1,0 +1,54 @@
+name: Bug report
+description: Report a reproducible defect
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## ⚠️ Projeto arquivado
+
+        Este repositório está arquivado para estudo e não está mais ativo.
+        Não há garantia de resposta, revisão ou correção.
+
+        ---
+
+        Thank you for reporting a bug. Please provide enough context for deterministic reproduction.
+  - type: input
+    id: summary
+    attributes:
+      label: Summary
+      description: Short and objective description of the bug.
+      placeholder: SQL conversion fails for dump containing COPY blocks
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: List exact steps and inputs.
+      placeholder: |
+        1. Run app with `npm run dev`
+        2. Upload file `sample.sql`
+        3. Click "Processar arquivo"
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Node.js, npm and browser versions.
+      placeholder: Windows 11, Node 22.14.0, npm 10.9.0, Chrome 133
+    validations:
+      required: true

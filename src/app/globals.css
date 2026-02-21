@@ -1,26 +1,308 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-primary-500: #2563eb;
+  --color-primary-600: #1d4ed8;
+  --color-primary-50: #eff6ff;
+  --color-success: #15803d;
+  --color-warning: #a16207;
+  --color-error: #b91c1c;
+  --color-gray-50: #f8fafc;
+  --color-gray-100: #f1f5f9;
+  --color-gray-200: #e2e8f0;
+  --color-gray-500: #64748b;
+  --color-gray-700: #334155;
+  --color-gray-900: #0f172a;
+
+  --color-background: #ffffff;
+  --color-surface: #f8fafc;
+  --color-border: #e2e8f0;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+
+  --font-family-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-2xl: 1.5rem;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+
+  --shadow-md: 0 10px 15px -3px rgb(15 23 42 / 0.12), 0 4px 6px -4px rgb(15 23 42 / 0.12);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-text-primary);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+body {
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-sans);
+}
+
+.app-shell {
+  min-height: 100vh;
+  background: linear-gradient(165deg, var(--color-primary-50) 0%, var(--color-background) 100%);
+  padding: var(--spacing-6);
+}
+
+.app-card {
+  max-width: 60rem;
+  margin: 0 auto;
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.app-header {
+  padding: var(--spacing-6);
+  background: linear-gradient(90deg, var(--color-primary-600), var(--color-primary-500));
+  color: var(--color-background);
+}
+
+.app-title {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+}
+
+.app-subtitle {
+  margin: var(--spacing-2) 0 0;
+  color: rgb(239 246 255);
+}
+
+.app-content {
+  display: grid;
+  gap: var(--spacing-6);
+  padding: var(--spacing-6);
+}
+
+.form-block {
+  display: grid;
+  gap: var(--spacing-2);
+}
+
+.field-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+.upload-box {
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color 180ms ease;
+}
+
+.upload-box:hover {
+  border-color: var(--color-primary-500);
+}
+
+.upload-label {
+  min-height: 12rem;
+  display: grid;
+  place-content: center;
+  gap: var(--spacing-2);
+  text-align: center;
+  cursor: pointer;
+  padding: var(--spacing-6);
+}
+
+.upload-label > span {
+  font-weight: var(--font-weight-semibold);
+}
+
+.upload-label > small {
+  color: var(--color-text-secondary);
+}
+
+.file-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-4);
+  background: var(--color-surface);
+}
+
+.file-meta p {
+  margin: 0;
+  font-weight: var(--font-weight-semibold);
+}
+
+.file-meta small {
+  color: var(--color-text-secondary);
+}
+
+.button-link {
+  margin-left: auto;
+  background: transparent;
+  border: 0;
+  color: var(--color-error);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+}
+
+.button-primary,
+.button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-3) var(--spacing-4);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+}
+
+.button-primary {
+  background: var(--color-primary-500);
+  color: var(--color-background);
+}
+
+.button-primary:hover {
+  background: var(--color-primary-600);
+}
+
+.button-primary:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.button-secondary {
+  background: var(--color-background);
+  border-color: var(--color-border);
+  color: var(--color-text-primary);
+}
+
+.platform-description {
+  display: grid;
+  gap: var(--spacing-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  padding: var(--spacing-4);
+}
+
+.platform-description p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+}
+
+.progress-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  padding: var(--spacing-4);
+}
+
+.progress-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-2);
+}
+
+.progress {
+  width: 100%;
+  height: 0.75rem;
+}
+
+.alert {
+  border: 1px solid;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-4);
+  display: flex;
+  gap: var(--spacing-2);
+  align-items: center;
+}
+
+.alert.warning {
+  color: var(--color-warning);
+  border-color: rgb(250 204 21 / 0.4);
+  background: rgb(254 252 232);
+}
+
+.alert.error {
+  color: var(--color-error);
+  border-color: rgb(248 113 113 / 0.4);
+  background: rgb(254 242 242);
+}
+
+.alert.success {
+  color: var(--color-success);
+  border-color: rgb(74 222 128 / 0.4);
+  background: rgb(240 253 244);
+  justify-content: space-between;
+}
+
+.icon-sm {
+  width: 1rem;
+  height: 1rem;
+}
+
+.icon-md {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.icon-lg {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.icon-xl {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0 auto;
+  color: var(--color-text-secondary);
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (max-width: 768px) {
+  .app-shell {
+    padding: var(--spacing-3);
+  }
+
+  .app-content,
+  .app-header {
+    padding: var(--spacing-4);
+  }
 }
