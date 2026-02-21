@@ -2,8 +2,8 @@
 
 # SQL Cleaner
 
-[![CI](https://img.shields.io/github/actions/workflow/status/enoquesousa/sql-clean-app/ci.yml?branch=main&style=flat&logo=github-actions&logoColor=white)](https://github.com/enoquesousa/sql-clean-app/actions/workflows/ci.yml)
-[![CodeFactor](https://img.shields.io/codefactor/grade/github/enoquesousa/sql-clean-app?style=flat&logo=codefactor&logoColor=white)](https://www.codefactor.io/repository/github/enoquesousa/sql-clean-app)
+[![CI](https://img.shields.io/github/actions/workflow/status/ESousa97/sql-clean-app/ci.yml?branch=main&style=flat&logo=github-actions&logoColor=white)](https://github.com/ESousa97/sql-clean-app/actions/workflows/ci.yml)
+[![CodeFactor](https://img.shields.io/codefactor/grade/github/ESousa97/sql-clean-app?style=flat&logo=codefactor&logoColor=white)](https://www.codefactor.io/repository/github/esousa97/sql-clean-app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat&logo=opensourceinitiative&logoColor=white)](https://opensource.org/licenses/MIT)
 [![Status](https://img.shields.io/badge/Status-Archived-lightgrey.svg?style=flat&logo=archive&logoColor=white)](#)
 
